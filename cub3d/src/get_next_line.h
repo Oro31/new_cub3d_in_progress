@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 03:23:41 by rvalton           #+#    #+#             */
-/*   Updated: 2020/03/01 03:27:52 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 15:08:00 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 
 int		get_next_line(int fd, char **line);
-char	*get_init(void);
 int		is_endl(char *buf);
 char	*get_realloc(char *buf, char **line);
 

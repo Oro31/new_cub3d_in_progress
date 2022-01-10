@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_xpmfiles.c                                    :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/09 16:09:22 by rvalton          ###   ########.fr       */
+/*   Created: 2019/11/04 11:29:35 by rvalton           #+#    #+#             */
+/*   Updated: 2022/01/09 16:14:53 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_fill_sprites(t_all *vars)
+void	ft_memset_spr_data(t_data *s, int n)
 {
-	int	i;
-	int	w;
-	int	h;
+	int		i;
 
-	i = 0;
-	while (i < vars->spr.nbspr)
+	i = -1;
+	while (++i < n)
 	{
-		vars->spr.data[i].img = mlx_xpm_file_to_image(vars->mlx, 
-				vars->spr.path[i], &w, 
-				&h);
-		vars->spr.data[i].addr = mlx_get_data_addr(
-				vars->spr.data[i].img, &vars->spr.data[i].bpp,
-				&vars->spr.data[i].ll, &vars->spr.data[i].e);
-		i++;
+		s[i].img = NULL;
+		s[i].addr = NULL;
+		s[i].bpp = 0;
+		s[i].ll = 0;
+		s[i].e = 0;
 	}
 }

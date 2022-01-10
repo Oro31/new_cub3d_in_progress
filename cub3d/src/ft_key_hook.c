@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 07:52:23 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/07 14:58:00 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 11:29:33 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	ft_close(t_all *vars)
 	mlx_destroy_image(vars->mlx, vars->img.img);
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_display(vars->mlx);
-	if (vars->mlx)
-		free(vars->mlx);
+	free(vars->mlx);
 	exit(0);
 }
 

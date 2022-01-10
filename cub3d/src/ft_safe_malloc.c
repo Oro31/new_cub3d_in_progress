@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 00:36:10 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 13:15:16 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/09 14:26:14 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ so be aware of the size you'r giving to them*/
 
 int	ft_malloc_dblchar(char ***tmp, int size)
 {
+	int	i;
+
 	if (!size)
 	{
 		*tmp = NULL;
@@ -28,12 +30,16 @@ int	ft_malloc_dblchar(char ***tmp, int size)
 	*tmp = malloc(sizeof(char *) * size);
 	if (!*tmp)
 		return (0);
-	(*tmp)[size - 1] = NULL;
+	i = -1;
+	while (++i < size)
+		(*tmp)[i] = NULL;
 	return (1);
 }
 
 int	ft_malloc_splchar(char **tmp, int size)
 {
+	int	i;
+
 	if (!size)
 	{
 		*tmp = NULL;
@@ -42,12 +48,16 @@ int	ft_malloc_splchar(char **tmp, int size)
 	*tmp = malloc(sizeof(char) * size);
 	if (!*tmp)
 		return (0);
-	(*tmp)[size - 1] = '\0';
+	i = -1;
+	while (++i < size)
+		(*tmp)[i] = '\0';
 	return (1);
 }
 
 int	ft_malloc_dblint(int ***tmp, int size)
 {
+	int	i;
+
 	if (!size)
 	{
 		*tmp = NULL;
@@ -56,12 +66,16 @@ int	ft_malloc_dblint(int ***tmp, int size)
 	*tmp = malloc(sizeof(int *) * size);
 	if (!*tmp)
 		return (0);
-	(*tmp)[size - 1] = NULL;
+	i = -1;
+	while (++i < size)
+		(*tmp)[i] = NULL;
 	return (1);
 }
 
 int	ft_malloc_splint(int **tmp, int size)
 {
+	int	i;
+
 	if (!size)
 	{
 		*tmp = NULL;
@@ -70,6 +84,8 @@ int	ft_malloc_splint(int **tmp, int size)
 	*tmp = malloc(sizeof(int) * size);
 	if (!*tmp)
 		return (0);
-	(*tmp)[size - 1] = 0;
+	i = -1;
+	while (++i < size)
+		(*tmp)[i] = 0;
 	return (1);
 }

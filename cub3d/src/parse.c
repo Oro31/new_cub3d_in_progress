@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 08:06:15 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 16:12:30 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 15:25:20 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	ft_parse_line(int checkline, t_all *vars, char *line)
 	}
 	else if (checkline == 4)
 		vars->map.box = ft_parse_map(line, vars->map.box);
+	free(line);
 }

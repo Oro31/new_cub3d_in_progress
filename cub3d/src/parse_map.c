@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 09:26:42 by rvalton           #+#    #+#             */
-/*   Updated: 2021/04/06 07:41:27 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 13:59:43 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,11 @@ char	*ft_linemap_realloc(char **map, int i)
 
 	maxlen = ft_lenmax_mpline(map);
 	len = ft_len_mpline(map[i]);
-	if (!(tmp = malloc(sizeof(char) * (maxlen + 1))))
+	if (!ft_malloc_splchar(&tmp, maxlen + 1))
 		return (NULL);
-	tmp[maxlen] = '\0';
-	j = 0;
-	while (j < len)
-	{
+	j = -1;
+	while (++j < len)
 		tmp[j] = map[i][j];
-		j++;
-	}
 	while (j < maxlen)
 	{
 		tmp[j] = ' ';
@@ -60,18 +56,19 @@ char	*ft_linemap_fill(char *line, int maxlen)
 {
 	int		i;
 	int		len;
+	int		mal_len;
 	char	*tmp;
 
 	len = ft_len_mpline(line);
-	if (!(tmp = malloc(sizeof(char) * (len + 1))))
+	if (maxlen > len)
+		mal_len = maxlen;
+	else
+		mal_len = len;
+	if (!ft_malloc_splchar(&tmp, mal_len + 1))
 		return (0);
-	tmp[len] = '\0';
-	i = 0;
-	while (i < len)
-	{
+	i = -1;
+	while (++i < len)
 		tmp[i] = line[i];
-		i++;
-	}
 	while (i < maxlen)
 	{
 		tmp[i] = ' ';
@@ -87,20 +84,19 @@ char	**ft_parse_map(char *line, char **map)
 	char	**tmp;
 
 	i = 0;
-	while (map[i])
-		i++;
-	fstdm = i + 1;
-	if (!(tmp = malloc(sizeof(char*) * (fstdm + 1))))
+	if (map)
+		while (map[i])
+			i++;
+	fstdm = i;
+	if (!ft_malloc_dblchar(&tmp, fstdm + 2))
 		return (NULL);
-	tmp[fstdm] = NULL;
-	i = 0;
-	while (i < (fstdm - 1))
-	{
+	i = -1;
+	while (++i < fstdm)
 		tmp[i] = ft_linemap_realloc(map, i);
+	tmp[fstdm] = ft_linemap_fill(line, ft_lenmax_mpline(map));
+	i = -1;
+	while (map[++i])
 		free(map[i]);
-		i++;
-	}
-	tmp[fstdm - 1] = ft_linemap_fill(line, ft_lenmax_mpline(map));
 	free(map);
 	return (tmp);
 }

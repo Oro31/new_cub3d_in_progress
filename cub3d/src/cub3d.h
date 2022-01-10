@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:56:50 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 13:32:45 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 16:04:36 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int		ft_malloc_splchar(char **tmp, int size);
 int		ft_malloc_dblint(int ***tmp, int size);
 int		ft_malloc_splint(int **tmp, int size);
 
+void	ft_memset_spr_data(t_data *s, int n);
+
 void		ft_init_pointer(t_all *vars);
 int		ft_init_before_parse(t_all *vars);
 int		ft_init_after_parse(t_all *vars);
@@ -176,7 +178,7 @@ double		ft_len_clst_wall(t_all *vars, int i);
 void		ft_find_walls(t_all *vars, double *wall);
 
 void		ft_replace_mapspace(char **map);
-int		ft_is_emptyline_inmap(int fd, char **line);
+int		ft_is_emptyline_inmap(int fd);
 
 void		ft_unif_walls(double *wall, int i);
 

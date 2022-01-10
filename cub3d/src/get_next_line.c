@@ -6,11 +6,12 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 02:03:14 by rvalton           #+#    #+#             */
-/*   Updated: 2021/03/31 07:55:01 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 15:08:29 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "cub3d.h"
 
 int	get_next_line(int fd, char **line)
 {
@@ -19,7 +20,7 @@ int	get_next_line(int fd, char **line)
 
 	if (fd < 0)
 		return (-1);
-	if (!(line[0] = get_init()))
+	if (!ft_malloc_splchar(line, 1))
 		return (-1);
 	while (!(is_endl(buf)))
 	{

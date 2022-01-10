@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 17:09:31 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/10 16:05:34 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,19 @@ static int	ft_init_start(t_all *vars)
 	char	*line;
 
 	line = NULL;
-//	if (!(ft_init_before_parse(vars)))
-//		return (ft_free(vars));
-	if ((ft_init_before_parse(vars)))
-	{
-		mlx_destroy_display(vars->mlx);
-		free(vars->mlx);
+	if (!(ft_init_before_parse(vars)))
 		return (ft_free(vars));
-	}
 	fd = open("src/map.cub", O_RDONLY);
 	if (fd == -1)
 		return (ft_free(vars));
 	while (get_next_line(fd, &line) > 0)
 		ft_parse_line(ft_check_line(line), vars, line);
 	close(fd);
+	free(line);
 	fd = open("src/map.cub", O_RDONLY);
 	if (fd == -1)
 		return (ft_free(vars));
-	line = NULL;
-	if (ft_is_emptyline_inmap(fd, &line))
+	if (ft_is_emptyline_inmap(fd))
 	{
 		printf("empty line in map ?!!!! \n");
 		close(fd);
@@ -78,8 +72,9 @@ int	main(void)
 	vars.cam.dir = ft_define_cam(&vars);
 	ft_draw(&vars);
 	mlx_hook(vars.win, 2, 1L << 0, ft_moove_kyhk, &vars);
-	ft_draw(&vars);
-	mlx_loop(vars.mlx);
+/*	mlx_hook(vars.win, 33, 1L << 17, ft_redcross, &vars);
+	mlx_hook(vars.win, 9, 1L << 21, ft_minimize, &vars);
+*/	mlx_loop(vars.mlx);
 	ft_free(&vars);
 	return (0);
 }
