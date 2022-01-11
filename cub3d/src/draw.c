@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 16:22:08 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 17:01:43 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	ft_get_visual(t_all *vars)
 	{
 		pos.y = -1;
 		e = (vars->rsl.h - (int)(64 * 500 / wall[pos.x])) / 2;
+		if (e < 0)
+			e = 0;
 		while (++pos.y < e)
 			ft_put_pixel_on_img(&vars->img, vars->sky.color,
 				       	pos.x, pos.y);
@@ -55,7 +57,10 @@ int	ft_get_visual(t_all *vars)
 int	ft_draw(t_all *vars)
 {
 	if (vars->img.img)
+	{
 		mlx_destroy_image(vars->mlx, vars->img.img);
+		ft_memset_spr_data(&(vars->img), 1);
+	}
 	vars->img.img = mlx_new_image(vars->mlx, vars->rsl.w, vars->rsl.h);
 	vars->img.addr = mlx_get_data_addr(vars->img.img, &vars->img.bpp, 
 			&vars->img.ll, &vars->img.e);
