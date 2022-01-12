@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 10:50:28 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 17:18:18 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:35:00 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	ft_get_xpm_pixel(t_data *data, int x, int y)
 {
 	int	color;
 
-	color = *((int*)data->addr + (x + y * 64));
+	color = *((int *)data->addr + (x + y * 64));
 	return (color);
 }

@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 08:09:32 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 16:12:39 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:08:45 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_parse_rsl(char *line, t_rsl *rsl)
 	i = 2;
 	while (line[i] == ' ')
 		i++;
-	while(ft_isdigit(line[i]))
+	while (ft_isdigit(line[i]))
 	{
 		r = r * 10 + (line[i] - 48);
 		i++;

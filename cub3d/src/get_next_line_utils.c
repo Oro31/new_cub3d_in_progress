@@ -6,14 +6,14 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 01:58:33 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 16:08:08 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:09:14 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "cub3d.h"
 
-int			is_endl(char *buf)
+int	is_endl(char *buf)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ static void	get_fill(char *buf, char *tmp, int i)
 	tmp[i] = '\0';
 }
 
-char		*get_realloc(char *buf, char **line)
+char	*get_realloc(char *buf, char **line)
 {
 	int		i;
 	int		n;

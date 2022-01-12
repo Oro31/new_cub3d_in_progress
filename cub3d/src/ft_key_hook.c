@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 07:52:23 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 11:29:33 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 18:43:54 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ int	ft_moove_kyhk(int keycode, t_all *vars)
 		ft_turn(vars, 'l');
 	else if (keycode == 65363)
 		ft_turn(vars, 'r');
-	else if (keycode == 119) /*may be 122 with azerty*/
+	else if (keycode == 119)
 		ft_moove(vars, 'w');
 	else if (keycode == 115)
 		ft_moove(vars, 's');
-	else if (keycode == 97) /*may be 113 with azerty*/
+	else if (keycode == 97)
 		ft_moove(vars, 'a');
 	else if (keycode == 100)
 		ft_moove(vars, 'd');

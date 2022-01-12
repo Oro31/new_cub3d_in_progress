@@ -6,11 +6,24 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 16:05:34 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 15:48:13 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static int	ft_redcross(t_all *vars)
+{
+	ft_free(vars);
+	ft_close(vars);
+	return (1);
+}
+
+static int	ft_minimize(t_all *vars)
+{
+	ft_draw(vars);
+	return (1);
+}
 
 static int	ft_last_check(t_all *vars)
 {
@@ -72,9 +85,9 @@ int	main(void)
 	vars.cam.dir = ft_define_cam(&vars);
 	ft_draw(&vars);
 	mlx_hook(vars.win, 2, 1L << 0, ft_moove_kyhk, &vars);
-/*	mlx_hook(vars.win, 33, 1L << 17, ft_redcross, &vars);
+	mlx_hook(vars.win, 33, 1L << 17, ft_redcross, &vars);
 	mlx_hook(vars.win, 9, 1L << 21, ft_minimize, &vars);
-*/	mlx_loop(vars.mlx);
+	mlx_loop(vars.mlx);
 	ft_free(&vars);
 	return (0);
 }

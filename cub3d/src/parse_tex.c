@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures.c                                         :+:      :+:    :+:   */
+/*   parse_tex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 07:34:12 by rvalton           #+#    #+#             */
-/*   Updated: 2021/04/02 09:16:16 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 18:34:26 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_parse_path(char *line, int iswall)
 	spc = j - start;
 	while (line[j] != '\0' && line[j] != '\n')
 		j++;
-	if (!(tmp = malloc(sizeof(char) * (j - (spc + start) + 1))))
+	if (!ft_malloc_splchar(&tmp, j - spc + start + 1))
 		return (NULL);
 	tmp[j - (spc + start)] = '\0';
 	j = start + spc;
@@ -38,7 +38,7 @@ char	*ft_parse_path(char *line, int iswall)
 	return (tmp);
 }
 
-int		ft_parse_tex(char *line, char **tpath)
+int	ft_parse_tex(char *line, char **tpath)
 {
 	if (line[0] == 'N' && line[1] == 'O' && line[2] == ' ')
 		tpath[0] = ft_parse_path(line, 1);

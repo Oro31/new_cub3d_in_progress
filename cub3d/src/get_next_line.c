@@ -6,12 +6,20 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 02:03:14 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 15:08:29 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:03:47 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "cub3d.h"
+
+static int	ft_rea_line(char *buf, char **line)
+{
+	*line = get_realloc(buf, line);
+	if (!*line)
+		return (0);
+	return (1);
+}
 
 int	get_next_line(int fd, char **line)
 {
@@ -24,7 +32,7 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	while (!(is_endl(buf)))
 	{
-		if (!(line[0] = get_realloc(buf, line)))
+		if (!ft_rea_line(buf, line))
 			return (-1);
 		rd_rtn_value = read(fd, buf, 4096);
 		if (rd_rtn_value == -1)
@@ -34,7 +42,7 @@ int	get_next_line(int fd, char **line)
 	}
 	if (is_endl(buf))
 	{
-		if (!(line[0] = get_realloc(buf, line)))
+		if (!ft_rea_line(buf, line))
 			return (-1);
 	}
 	return (1);

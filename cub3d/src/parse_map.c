@@ -6,21 +6,21 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 09:26:42 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 13:59:43 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 18:35:33 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_ismap_member(char c)
+int	ft_ismap_member(char c)
 {
 	if ((c >= '0' && c <= '2') || c == 'N'
-			|| c == 'S' || c == 'E' || c == 'W')
+		|| c == 'S' || c == 'E' || c == 'W')
 		return (1);
 	return (0);
 }
 
-int		ft_len_mpline(char *line)
+int	ft_len_mpline(char *line)
 {
 	int		i;
 

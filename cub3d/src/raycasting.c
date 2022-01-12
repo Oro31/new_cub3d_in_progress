@@ -6,11 +6,23 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 08:06:15 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/07 14:55:34 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 18:50:33 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	ft_get_param(t_all *vars, float *fov, float *a, float *cosbeta)
+{
+	*fov = ft_dir_to_fov(vars->cam.dir);
+	if (*fov > vars->ray.a)
+		*a = *fov - vars->ray.a;
+	else
+		*a = vars->ray.a - *fov;
+	*cosbeta = cos(*a);
+	if (*cosbeta < 0)
+		*cosbeta *= -1;
+}
 
 double	ft_len_clst_wall(t_all *vars, int i)
 {
@@ -22,17 +34,9 @@ double	ft_len_clst_wall(t_all *vars, int i)
 
 	y = ft_new_hor_inte(vars, &vars->ray, i);
 	x = ft_new_ver_inte(vars, &vars->ray, i);
-	fov = ft_dir_to_fov(vars->cam.dir);
-	if (fov > vars->ray.a)
-		a = fov - vars->ray.a;
-	else
-		a = vars->ray.a - fov;
-	cosbeta = cos(a);
-	if (cosbeta < 0)
-		cosbeta *= -1;
+	ft_get_param(vars, &fov, &a, &cosbeta);
 	if (x >= y)
 	{
-
 		if (vars->ray.a > 0 && vars->ray.a < M_PI)
 			vars->wallface[i] = 3;
 		else
@@ -51,7 +55,7 @@ double	ft_len_clst_wall(t_all *vars, int i)
 
 void	ft_find_walls(t_all *vars, double *wall)
 {
-	int	i;
+	int		i;
 	float	a;
 	float	fov;
 

@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/09 16:09:22 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:41:16 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	ft_fill_sprites(t_all *vars)
 	i = 0;
 	while (i < vars->spr.nbspr)
 	{
-		vars->spr.data[i].img = mlx_xpm_file_to_image(vars->mlx, 
-				vars->spr.path[i], &w, 
-				&h);
+		vars->spr.data[i].img = mlx_xpm_file_to_image(vars->mlx,
+				vars->spr.path[i], &w, &h);
 		vars->spr.data[i].addr = mlx_get_data_addr(
 				vars->spr.data[i].img, &vars->spr.data[i].bpp,
 				&vars->spr.data[i].ll, &vars->spr.data[i].e);

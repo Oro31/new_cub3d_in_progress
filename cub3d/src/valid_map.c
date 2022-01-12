@@ -6,13 +6,13 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 12:50:30 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/08 13:19:50 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:39:22 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		ft_lenmax_mpline(char **map)
+int	ft_lenmax_mpline(char **map)
 {
 	int		i;
 	int		len;
@@ -20,7 +20,7 @@ int		ft_lenmax_mpline(char **map)
 
 	max = 0;
 	i = 0;
-	while(map[i])
+	while (map[i])
 	{
 		len = ft_len_mpline(map[i]);
 		if (len > max)
@@ -30,7 +30,7 @@ int		ft_lenmax_mpline(char **map)
 	return (max);
 }
 
-int		ft_is_space_diagwalled_tool(char **map, int i, int j)
+int	ft_is_space_diagwalled_tool(char **map, int i, int j)
 {
 	int		startx;
 	int		starty;
@@ -56,7 +56,7 @@ int		ft_is_space_diagwalled_tool(char **map, int i, int j)
 	return (1);
 }
 
-int		ft_is_space_diagwalled(char **map, int i, int j, int len)
+int	ft_is_space_diagwalled(char **map, int i, int j, int len)
 {
 	int		startx;
 	int		starty;
@@ -82,7 +82,7 @@ int		ft_is_space_diagwalled(char **map, int i, int j, int len)
 	return (ft_is_space_diagwalled_tool(map, i, j));
 }
 
-int		ft_is_space_walled(char **map, int i, int j, int len)
+int	ft_is_space_walled(char **map, int i, int j, int len)
 {
 	int		startx;
 	int		starty;
@@ -102,14 +102,15 @@ int		ft_is_space_walled(char **map, int i, int j, int len)
 		j--;
 	if (map[startx][j] != '1')
 		return (0);
-	while (map[startx] && map[startx][starty] != '1' && map[startx][starty] != ' ')
+	while (map[startx] && map[startx][starty] != '1'
+		&& map[startx][starty] != ' ')
 		starty++;
 	if (map[startx][starty] != '1')
 		return (0);
 	return (1);
 }
 
-int		ft_ismap_walled(char **map)
+int	ft_ismap_walled(char **map)
 {
 	int		i;
 	int		j;
