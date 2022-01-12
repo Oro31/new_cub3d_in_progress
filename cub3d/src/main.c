@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/12 18:58:21 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 19:41:06 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,12 @@ static int	ft_handle_argv(char *argv)
 		i++;
 	if (argv[i - 1] != 'b' || argv[i - 2] != 'u' || argv[i - 3] != 'c'
 		|| argv[i - 4] != '.')
-		return (0);
+		return (ft_error_msg(1));
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
-		return (0);
+	{
+		return (ft_error_msg(2));
+	}
 	close(fd);
 	return (1);
 }
