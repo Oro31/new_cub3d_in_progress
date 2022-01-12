@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 08:06:15 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 15:25:20 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 17:14:11 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	ft_parse_line(int checkline, t_all *vars, char *line)
 	i = 0;
 	if (checkline == 2)
 		i = ft_parse_tex(line, vars->spr.path);
-	else if (checkline == 1)
-		ft_parse_rsl(line, &vars->rsl);
 	else if (checkline == 3)
 	{
 		if (line[0] == 'F')

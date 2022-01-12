@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/11 16:52:41 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 17:12:16 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	ft_init_before_parse(t_all *vars)
 {
 	ft_init_pointer(vars);
 	ft_init_ray(vars);
-	vars->rsl.w = 0;
-	vars->rsl.h = 0;
+	vars->rsl.w = 640;
+	vars->rsl.h = 640;
 	vars->cam.pos.x = 0;
 	vars->cam.pos.y = 0;
 	vars->cam.dir = '\0';
