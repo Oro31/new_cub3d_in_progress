@@ -1,11 +1,10 @@
-NO    xpmsprites/wood.XPM
 SO  xpmsprites/redbrick.XPM
 WE xpmsprites/colorstone.XPM
-EA    xpmsprites/bluestone.XPM
+EA      xpmsprites/bluestone.XPM
+NO    xpmsprites/wood.XPM
 
-S     xpmsprites/barrel.XPM
-F   220,  100,   0
-C 225, 30,   0
+F 150, 150, 150
+C 100, 100,   255
 
 1111111111111111
 1  110001100111 

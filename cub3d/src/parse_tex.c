@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 07:34:12 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/11 18:34:26 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 17:41:18 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,5 @@ int	ft_parse_tex(char *line, char **tpath)
 		tpath[2] = ft_parse_path(line, 1);
 	else if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
 		tpath[3] = ft_parse_path(line, 1);
-	else if (line[0] == 'S' && line[1] == ' ')
-		tpath[4] = ft_parse_path(line, 0);
 	return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/11 19:41:16 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 19:16:08 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_fill_sprites(t_all *vars)
+int	ft_fill_sprites(t_all *vars)
 {
 	int	i;
 	int	w;
@@ -21,11 +21,16 @@ void	ft_fill_sprites(t_all *vars)
 	i = 0;
 	while (i < vars->spr.nbspr)
 	{
+		if (!vars->spr.path[i])
+			return (0);
 		vars->spr.data[i].img = mlx_xpm_file_to_image(vars->mlx,
 				vars->spr.path[i], &w, &h);
+		if (!vars->spr.data[i].img)
+			return (0);
 		vars->spr.data[i].addr = mlx_get_data_addr(
 				vars->spr.data[i].img, &vars->spr.data[i].bpp,
 				&vars->spr.data[i].ll, &vars->spr.data[i].e);
 		i++;
 	}
+	return (1);
 }

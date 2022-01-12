@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/12 17:12:16 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:58:25 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ int	ft_init_before_parse(t_all *vars)
 	if (!ft_malloc_dblchar(&(vars->map.box), 1))
 		return (0);
 	vars->map.box[0] = NULL;
-	if (!ft_malloc_dblchar(&(vars->spr.path), 6))
+	if (!ft_malloc_dblchar(&(vars->spr.path), 5))
 		return (0);
-	vars->spr.data = malloc(sizeof(t_data) * 5);
+	vars->spr.data = malloc(sizeof(t_data) * 4);
 	if (!vars->spr.data)
 		return (0);
-	ft_memset_spr_data(vars->spr.data, 5);
-	vars->spr.nbspr = 5;
+	ft_memset_spr_data(vars->spr.data, 4);
+	vars->spr.nbspr = 4;
 	return (1);
 }
 

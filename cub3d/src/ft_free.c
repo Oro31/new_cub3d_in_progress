@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 11:27:15 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 19:18:27 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	ft_free_sprites(t_all *vars)
 	if (vars->spr.path)
 	{
 		i = -1;
-		while (vars->spr.path[++i])
+		while (++i < vars->spr.nbspr)
 		{
 			if (vars->spr.data[i].img)
 				mlx_destroy_image(vars->mlx, vars->spr.data[i].img);
-			free(vars->spr.path[i]);
+			if (vars->spr.path[i])
+				free(vars->spr.path[i]);
 		}
 		if (vars->spr.data)
 			free(vars->spr.data);

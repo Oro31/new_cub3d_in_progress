@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:56:50 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/12 15:44:39 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:39:34 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ int		ft_ismap_walled(char **map);
 
 int		ft_isdigit(int c);
 
-void	ft_fill_sprites(t_all *vars);
+int		ft_fill_sprites(t_all *vars);
 
 void	ft_put_pixel_on_img(t_data *img, int color, int x, int y);
 int		ft_get_visual(t_all *vars);
@@ -187,6 +187,9 @@ double	ft_new_hor_inte(t_all *vars, t_ray *ray, int i);
 int		ft_check_wall(t_all *vars, t_ray *ray, char c, int i);
 void	ft_define_ray(t_ray *ray, char c);
 int		ft_new_check_maplimites(t_all *vars, int *x, int *y);
+
+int		ft_redcross(t_all *vars);
+int		ft_minimize(t_all *vars);
 
 void	ft_close(t_all *vars);
 void	ft_turn(t_all *vars, char c);
