@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:56:50 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/12 18:39:34 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/13 18:00:04 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_rgb
 	uint8_t		g;
 	uint8_t		b;
 	int			color;
+	int			error;
 }			t_rgb;
 
 typedef struct s_pos
@@ -106,6 +107,8 @@ void	ft_memset_spr_data(t_data *s, int n);
 void	ft_init_pointer(t_all *vars);
 int		ft_init_before_parse(t_all *vars);
 int		ft_init_after_parse(t_all *vars);
+
+int		ft_error_msg(int err_code);
 
 void	ft_parse_line(int checkline, t_all *vars, char *line);
 

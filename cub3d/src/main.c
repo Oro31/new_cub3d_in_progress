@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/12 19:41:06 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/13 20:40:49 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static int	ft_last_check(t_all *vars)
 {
 	if (!(ft_ismap_walled(vars->map.box)))
 	{
-		printf("map is not walled ?!!!! \n");
-		return (0);
+		printf("map not walled\n");
+		return (ft_error_msg(3));
 	}
 	ft_replace_mapspace(vars->map.box);
 	if (!(ft_init_after_parse(vars)))
@@ -46,19 +46,21 @@ static int	ft_init_start(t_all *vars, char *map_file_path)
 		return (0);
 	fd = open(map_file_path, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		return (ft_error_msg(2));
 	while (get_next_line(fd, &line) > 0)
 		ft_parse_line(ft_check_line(line), vars, line);
 	close(fd);
 	free(line);
+	if (vars->ground.error || vars->sky.error)
+		return (ft_error_msg(5));
 	fd = open(map_file_path, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		return (ft_error_msg(2));
 	if (ft_is_emptyline_inmap(fd))
 	{
-		printf("empty line in map ?!!!! \n");
+		printf("empty line in map\n");
 		close(fd);
-		return (0);
+		return (ft_error_msg(3));
 	}
 	close(fd);
 	return (1);
@@ -77,9 +79,7 @@ static int	ft_handle_argv(char *argv)
 		return (ft_error_msg(1));
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
-	{
 		return (ft_error_msg(2));
-	}
 	close(fd);
 	return (1);
 }
